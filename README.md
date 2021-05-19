@@ -131,3 +131,16 @@ cfg_path = "./cfg/yolov3-spp.cfg"
 
 ## YOLOv3 SPP框架图
 ![yolov3spp](https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/raw/master/pytorch_object_detection/yolov3_spp/yolov3spp.png) 
+
+Allen步骤：
+# 运行步骤
+1. 先下载pascal voc2012数据集，然后解压；
+2. 更改trans_voc2yolo.py里面的路径，然后运行此文件，将格式转化成超yolo格式标准；
+3. 运行calculate_dataset.py文件；
+> 该脚本有3个功能：
+1.统计训练集和验证集的数据并生成相应.txt文件  
+2.创建data.data文件，记录classes个数, train以及val数据集文件(.txt)路径和label.names文件路径  
+3.根据yolov3-spp.cfg创建my_yolov3.cfg文件修改其中的predictor filters以及yolo classes参数(这两个参数是根据类别数改变的)
+
+4.下载预训练权重到weights目录下面；
+5.运行train.py文件；
